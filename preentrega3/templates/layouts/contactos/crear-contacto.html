@@ -1,0 +1,20 @@
+{% extends 'index.html' %} {% block cuerpo %}
+<h2>Crear contacto</h2>
+<form action="{% url 'guardar-contacto' %}" method="POST">
+  {% csrf_token %}
+  <fieldset name="contacto">
+    <legend>Contacto</legend>
+    {{ formularioContacto.as_p }}
+  </fieldset>
+
+  <fieldset name="profesor">
+    <legend>Profesor</legend>
+    {{ formularioProfesor.as_p }}
+  </fieldset>
+  <fieldset name="alumno">
+    <legend>Curso</legend>
+    {{ formularioCurso.as_p }}
+  </fieldset>
+  <input type="submit" value="Crear" />
+</form>
+{% endblock cuerpo %}

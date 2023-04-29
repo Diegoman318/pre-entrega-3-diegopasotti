@@ -1,0 +1,32 @@
+{% extends 'index.html' %} {% block cuerpo %}
+<h2 class="text-center">Contactos</h2>
+
+<form class="row" action="{% url 'contactos' %}" method="GET">
+  <div class="col-9">
+    <input
+      type="text"
+      class="form-control"
+      name="search"
+      placeholder="Buscar contacto..."
+    />
+  </div>
+  <div class="d-grid gap-2 col-3 mx-auto">
+    <button type="submit" class="btn btn-outline-primary mb-3">Buscar</button>
+  </div>
+</form>
+
+<div class="d-grid gap-2 col-6 mx-auto">
+  <a href="{% url 'crear-contacto' %}" class="btn btn-success" role="button"
+    >Crear Contacto</a
+  >
+</div>
+
+{% for contacto in contactos %}
+<ul class="list-group list-group-flush">
+  <li class="list-group-item">
+    {{ contacto.nombre }} {{ contacto.apellidos }} - {{ contacto.email }}
+    <br />
+    Telefono: {{contacto.movil }}
+  </li>
+</ul>
+{% endfor %} {% endblock cuerpo %}

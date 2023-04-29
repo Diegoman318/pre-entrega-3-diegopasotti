@@ -1,0 +1,10 @@
+{% extends 'index.html' %}
+
+{% block cuerpo %}
+<h2>Crear contacto</h2>
+<form action="{% url 'actualizar-contactos' nombre=nombre %}" method="POST">
+    {% csrf_token %}
+    {{ formulario.as_p }}
+    <input type="submit" value="Enviar">
+</form>
+{% endblock cuerpo %}
